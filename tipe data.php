@@ -1,9 +1,9 @@
 <?php
 
-$nama = "Alif";
-$umur = 15;
-$tinggi = 170.5;
-$isStudent = true;
+$nama = "Alif"; // string
+$umur = 15; // integer
+$tinggi = 170.5; // float
+$isStudent = true; //boolean
 
 echo "Nama Saya $nama dan umur <br> saya adalah $umur dan tinggi saya $tinggi
  dan saya $isStudent <b>seorang Siswa</b> Di IDN Boarding School Solo";
