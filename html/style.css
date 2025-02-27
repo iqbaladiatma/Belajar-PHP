@@ -1,0 +1,538 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  background-color: #0f0f2d;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+.navbar .atas {
+  display: flex;
+  justify-content: space-between;
+  width: 83.333333%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.port {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  padding: 17px;
+}
+
+.gasken {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 75px;
+  background-color: #2c2e56;
+  color: white;
+}
+
+.header .photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header .photo img {
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+}
+
+.header .details {
+  flex: 2;
+  padding-left: 30px;
+}
+
+.header .details h1 {
+  font-size: 36px;
+  color: #ff6b6b;
+  margin: 0;
+}
+
+.header .details p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.header .stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.header .stats div {
+  text-align: center;
+}
+
+.header .stats div h3 {
+  font-size: 24px;
+  margin: 0;
+  color: #ff6b6b;
+}
+
+.header .stats div p {
+  margin: 0;
+}
+
+/* Services Section */
+.services {
+  padding: 50px 20px;
+  background-color: #141432;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff6f61;
+}
+
+.services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.services li {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.service-container {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #29294d; /* Ubah warna sesuai preferensi Anda */
+  color: white; /* Ubah warna teks sesuai preferensi Anda */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* Recent Works Section */
+.recent-works {
+  padding: 50px 20px;
+  background-color: #1a1a3c;
+}
+
+.recent-works h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff6f61;
+}
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.work-item {
+  background-color: #29294d;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* Experience and Education Section */
+.experience-education {
+  padding: 50px 20px;
+  background-color: #141432;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.experience,
+.education {
+  flex: 1 1 45%;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Skills Section */
+.skills {
+  padding: 50px 20px;
+  background-color: #1a1a3c;
+  text-align: center;
+}
+
+.skills h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff6f61;
+}
+
+.skills-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.skills-icons div {
+  background-color: #29294d;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Client Stories Section */
+.client-stories {
+  padding: 50px 20px;
+  background-color: #141432;
+  text-align: center;
+}
+
+.client-stories h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff6f61;
+}
+
+.testimonials {
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonial {
+  background-color: #29294d;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  text-align: left;
+  min-width: 250px;
+}
+
+/* Recent Blogs Section */
+.recent-blogs {
+  padding: 50px;
+  background-color: #2c2e56;
+  color: white;
+  text-align: center;
+}
+
+.recent-blogs h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff6f61;
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.blog {
+  background-color: #393a6a;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+}
+
+.blog h3 {
+  margin: 0;
+  color: #ff6f61;
+}
+
+/* Contact Section */
+.contact {
+  padding: 50px 20px;
+  background-color: #141432;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff6f61;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.contact button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #ff6b6b;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #ff5252;
+}
+
+.contact textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* Footer Section */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0f0f2d;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+/* Responsive Design */
+
+/* Untuk layar kecil (ponsel) */
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 30px;
+    text-align: center;
+  }
+
+  .header .photo {
+    margin-bottom: 20px;
+  }
+
+  .header .photo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .header .details {
+    padding-left: 0;
+  }
+
+  .header .details h1 {
+    font-size: 28px;
+  }
+
+  .header .details p {
+    font-size: 14px;
+  }
+
+  .header .stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .services ul,
+  .experience,
+  .education,
+  .skills-icons {
+    text-align: center;
+  }
+
+  .work-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .testimonial {
+    text-align: center;
+  }
+
+  .contact form {
+    width: 100%;
+  }
+
+  .blogs .blog {
+    width: 100%;
+  }
+}
+
+/* Untuk layar tablet (rentang 769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 50px;
+    text-align: center;
+  }
+
+  .header .photo {
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .header .photo img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .header .details {
+    flex: 1;
+    padding-left: 0;
+  }
+
+  .header .details h1 {
+    font-size: 32px;
+  }
+
+  .header .details p {
+    font-size: 16px;
+  }
+
+  .header .stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .services h2,
+  .recent-works h2,
+  .skills h2,
+  .client-stories h2,
+  .recent-blogs h2,
+  .contact h2 {
+    font-size: 28px;
+  }
+
+  .work-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .skills-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .testimonial {
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .blogs .blog {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .contact form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Untuk layar besar (desktop) */
+@media (min-width: 1025px) {
+  .header {
+    padding: 75px;
+    text-align: left;
+  }
+
+  .header .photo {
+    flex: 1;
+  }
+
+  .header .photo img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .header .details {
+    flex: 2;
+    padding-left: 30px;
+  }
+
+  .header .details h1 {
+    font-size: 36px;
+  }
+
+  .header .stats {
+    gap: 30px;
+  }
+
+  .work-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .skills-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .testimonial {
+    text-align: left;
+  }
+
+  .blogs .blog {
+    width: 80%;
+  }
+
+  .contact form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
