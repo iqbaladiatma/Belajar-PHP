@@ -1,0 +1,156 @@
+Berikut adalah peta pemikiran untuk membuat CRUD (Create, Read, Update, Delete) sederhana di PHP secara sistematis dan terstruktur. Peta ini akan membantu Anda merencanakan dan membangun aplikasi CRUD dengan langkah-langkah yang jelas.
+
+---
+
+## 1. Persiapan Awal
+- **Tentukan Tujuan**: Pilih apa yang ingin Anda kelola dengan CRUD. Contohnya, daftar tugas (to-do list), data pengguna, atau produk.
+- **Siapkan Database**: Gunakan MySQL sebagai database. Buat tabel sederhana, misalnya:
+  - Nama tabel: `tasks`
+  - Kolom: `id` (INT, auto-increment, primary key), `task_name` (VARCHAR), `status` (VARCHAR).
+- **Setup Lingkungan**: Pastikan Anda memiliki PHP dan server seperti XAMPP atau WAMP yang mendukung MySQL.
+
+---
+
+## 2. Koneksi ke Database
+- **Buat File Koneksi**: Buat file bernama `db_connect.php` dengan kode berikut:
+  ```php
+  <?php
+  $host = "localhost";
+  $user = "root";
+  $pass = "";
+  $db = "nama_database";
+  
+  $conn = mysqli_connect($host, $user, $pass, $db);
+  if (!$conn) {
+      die("Koneksi gagal: " . mysqli_connect_error());
+  }
+  ?>
+  ```
+- **Uji Koneksi**: Sertakan file ini di halaman lain dan pastikan tidak ada error.
+
+---
+
+## 3. Operasi Read (Menampilkan Data)
+- **Buat Halaman Utama**: Buat file `index.php` untuk menampilkan data.
+- **Query SELECT**: Ambil data dari tabel dengan query:
+  ```php
+  $query = "SELECT * FROM tasks";
+  $result = mysqli_query($conn, $query);
+  ```
+- **Tampilkan Data**: Gunakan loop untuk menampilkan data dalam tabel:
+  ```php
+  <table border="1">
+      <tr>
+          <th>ID</th>
+          <th>Nama Tugas</th>
+          <th>Status</th>
+          <th>Aksi</th>
+      </tr>
+      <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <tr>
+              <td><?php echo $row['id']; ?></td>
+              <td><?php echo $row['task_name']; ?></td>
+              <td><?php echo $row['status']; ?></td>
+              <td>
+                  <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
+                  <a href="delete.php?id=<?php echo $row['id']; ?>">Hapus</a>
+              </td>
+          </tr>
+      <?php } ?>
+  </table>
+  ```
+
+---
+
+## 4. Operasi Create (Menambahkan Data)
+- **Buat Form**: Di `create.php`, tambahkan form HTML:
+  ```php
+  <form action="" method="POST">
+      <label>Nama Tugas:</label>
+      <input type="text" name="task_name" required>
+      <label>Status:</label>
+      <input type="text" name="status" required>
+      <button type="submit" name="submit">Tambah</button>
+  </form>
+  ```
+- **Proses Input**: Tambahkan logika untuk menyimpan data:
+  ```php
+  <?php
+  include 'db_connect.php';
+  if (isset($_POST['submit'])) {
+      $task_name = $_POST['task_name'];
+      $status = $_POST['status'];
+      $query = "INSERT INTO tasks (task_name, status) VALUES ('$task_name', '$status')";
+      mysqli_query($conn, $query);
+      header("Location: index.php"); // Redirect ke halaman utama
+  }
+  ?>
+  ```
+
+---
+
+## 5. Operasi Update (Mengedit Data)
+- **Buat Halaman Edit**: Di `edit.php`, ambil data berdasarkan ID dan tampilkan di form:
+  ```php
+  <?php
+  include 'db_connect.php';
+  $id = $_GET['id'];
+  $query = "SELECT * FROM tasks WHERE id = $id";
+  $result = mysqli_query($conn, $query);
+  $data = mysqli_fetch_assoc($result);
+  ?>
+  <form action="" method="POST">
+      <label>Nama Tugas:</label>
+      <input type="text" name="task_name" value="<?php echo $data['task_name']; ?>" required>
+      <label>Status:</label>
+      <input type="text" name="status" value="<?php echo $data['status']; ?>" required>
+      <button type="submit" name="submit">Update</button>
+  </form>
+  ```
+- **Proses Update**: Tambahkan logika untuk memperbarui data:
+  ```php
+  <?php
+  if (isset($_POST['submit'])) {
+      $task_name = $_POST['task_name'];
+      $status = $_POST['status'];
+      $query = "UPDATE tasks SET task_name='$task_name', status='$status' WHERE id=$id";
+      mysqli_query($conn, $query);
+      header("Location: index.php");
+  }
+  ?>
+  ```
+
+---
+
+## 6. Operasi Delete (Menghapus Data)
+- **Buat File Hapus**: Di `delete.php`, hapus data berdasarkan ID:
+  ```php
+  <?php
+  include 'db_connect.php';
+  $id = $_GET['id'];
+  $query = "DELETE FROM tasks WHERE id = $id";
+  mysqli_query($conn, $query);
+  header("Location: index.php");
+  ?>
+  ```
+- **Opsional**: Tambahkan konfirmasi sebelum hapus menggunakan JavaScript di `index.php`.
+
+---
+
+## 7. Keamanan Dasar
+- **Sanitisasi Input**: Gunakan `mysqli_real_escape_string` untuk mencegah SQL Injection:
+  ```php
+  $task_name = mysqli_real_escape_string($conn, $_POST['task_name']);
+  $status = mysqli_real_escape_string($conn, $_POST['status']);
+  ```
+- **Validasi**: Pastikan input tidak kosong sebelum diproses.
+
+---
+
+## 8. Penyempurnaan
+- **Tambahkan CSS**: Gunakan gaya sederhana atau framework seperti Bootstrap untuk mempercantik tampilan.
+- **Uji Fungsi**: Coba tambah, baca, edit, dan hapus data untuk memastikan semuanya berjalan lancar.
+
+---
+
+Dengan mengikuti peta pemikiran ini, Anda dapat membuat CRUD sederhana di PHP secara bertahap. Mulailah dari koneksi database, lalu implementasikan setiap operasi (Create, Read, Update, Delete) satu per satu. Selamat mencoba!

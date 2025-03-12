@@ -51,3 +51,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
+<!-- untuk nanti -->
+<!-- // Create
+if (isset($_POST['submit'])) {
+    $task = $_POST['task'];
+    $sql = "INSERT INTO tasks (task) VALUES ('$task')";
+    mysqli_query($conn, $sql);
+}
+
+// Delete
+if (isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    $sql = "DELETE FROM tasks WHERE id = $id";
+    mysqli_query($conn, $sql);
+}
+
+// Update status
+if (isset($_GET['complete'])) {
+    $id = $_GET['complete'];
+    $sql = "UPDATE tasks SET status = 1 WHERE id = $id";
+    mysqli_query($conn, $sql);
+} -->
+    <!--  <!-- Read/Display -->
+    <ul>
+    <?php
+    $sql = "SELECT * FROM tasks ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
+    
+    while ($row = mysqli_fetch_assoc($result)) {
+        $status = $row['status'] ? 'completed' : '';
+        echo "<li class='$status'>";
+        echo $row['task'];
+        echo " <a href='?complete=" . $row['id'] . "'>[Selesai]</a>";
+        echo " <a href='?delete=" . $row['id'] . "' onclick='return confirm(\"Yakin hapus?\")'>[Hapus]</a>";
+        echo "</li>";
+    }
+    ?>
+    </ul> -->
+
+    <!-- nanti  <style>
+        .completed { text-decoration: line-through; color: gray; }
+    </style>-->
+
+    <!-- ini juga mysqli_query($conn, $sql_create); // Buat tabel jika belum ada (jalankan sekali saja)
+$sql_create = "CREATE TABLE IF NOT EXISTS todo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task VARCHAR(255) NOT NULL,
+    status TINYINT DEFAULT 0
+)"; -->
